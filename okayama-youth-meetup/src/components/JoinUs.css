@@ -1,0 +1,137 @@
+.joinus-section {
+  min-height: 100vh;
+  padding: 5rem 2rem;
+  background-color: var(--background-light);
+}
+
+.joinus-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 3rem;
+  color: var(--text-dark);
+}
+
+.joinus-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+.joinus-card {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 2.5rem;
+  border-radius: 16px;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.joinus-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+}
+
+.joinus-icon {
+  margin-bottom: 1rem;
+  color: white;
+}
+
+.joinus-card h3 {
+  font-size: 1.75rem;
+  margin-bottom: 1rem;
+}
+
+.joinus-card p {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.joinus-button {
+  background-color: white;
+  color: var(--primary-color);
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 30px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin-top: 0.5rem;
+}
+
+.joinus-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.access-info {
+  background-color: var(--background-gray);
+  padding: 3rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.access-info h3 {
+  font-size: 1.75rem;
+  margin-bottom: 1.5rem;
+  color: var(--text-dark);
+  text-align: center;
+}
+
+.access-info ul {
+  list-style: none;
+  padding: 0;
+}
+
+.access-info li {
+  font-size: 1.1rem;
+  padding: 0.75rem 0;
+  color: #555;
+  position: relative;
+  padding-left: 2rem;
+}
+
+.access-info li::before {
+  content: "▸";
+  position: absolute;
+  left: 0;
+  color: var(--primary-color);
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .joinus-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .joinus-card {
+    padding: 2rem;
+  }
+
+  .access-info {
+    padding: 2rem 1.5rem;
+  }
+
+  .access-info h3 {
+    font-size: 1.5rem;
+  }
+
+  .access-info li {
+    font-size: 1rem;
+  }
+}

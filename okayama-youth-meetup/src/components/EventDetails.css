@@ -1,0 +1,125 @@
+.event-details-section {
+  min-height: 100vh;
+  padding: 5rem 2rem;
+  background-color: var(--background-gray);
+}
+
+.event-details-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 3rem;
+  color: var(--text-dark);
+}
+
+.details-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+.detail-card {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.detail-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+}
+
+.detail-icon {
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+.detail-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--text-dark);
+}
+
+.detail-card p {
+  font-size: 1.1rem;
+  color: #555;
+  line-height: 1.8;
+}
+
+.schedule-section {
+  background-color: white;
+  padding: 3rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.schedule-title {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: var(--text-dark);
+}
+
+.schedule-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.schedule-item {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: 2rem;
+  padding: 1.5rem;
+  border-left: 4px solid var(--primary-color);
+  background-color: var(--background-gray);
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.schedule-item:hover {
+  background-color: #e8f4f8;
+}
+
+.schedule-time {
+  font-size: 1.25rem;
+  color: var(--primary-color);
+  font-weight: 700;
+}
+
+.schedule-content {
+  font-size: 1.1rem;
+  color: var(--text-dark);
+}
+
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .schedule-item {
+    grid-template-columns: 80px 1fr;
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .schedule-time {
+    font-size: 1rem;
+  }
+
+  .schedule-content {
+    font-size: 1rem;
+  }
+
+  .schedule-section {
+    padding: 2rem 1.5rem;
+  }
+}
