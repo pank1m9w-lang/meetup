@@ -1,4 +1,4 @@
-import { MessageCircle, Music, Users } from 'lucide-react';
+import { MessageCircle, Lightbulb, PartyPopper } from 'lucide-react';
 import './Program.css';
 
 const Program = () => {
@@ -9,14 +9,14 @@ const Program = () => {
       description: '高校生・大学生・社会人が、それぞれの視点から「挑戦」「未来」「岡山での生き方」について語ります。',
     },
     {
-      icon: Music,
-      title: 'パフォーマンス',
-      description: '岡山ゆかりの若者による音楽・ダンスなど、自分らしい表現を発信。',
+      icon: Lightbulb,
+      title: 'ワークショップ',
+      description: '参加者が主体的に学び、体験する実践型プログラム。グループワークを通じて新しい気づきを得られます。',
     },
     {
-      icon: Users,
-      title: '交流セッション',
-      description: '参加者同士が語り合い、つながる時間。ファシリテーターが入り、初めて同士でも安心。',
+      icon: PartyPopper,
+      title: 'アフターパーティ',
+      description: 'イベント終了後、参加者同士が気軽に交流できる時間。リラックスした雰囲気でつながりを深めます。',
     },
   ];
 
