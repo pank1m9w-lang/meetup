@@ -12,10 +12,10 @@ const JoinUs = () => {
             <FileText className="joinus-icon" size={40} />
             <h3>参加方法</h3>
             <p>申込フォーム or Peatix</p>
-            <button className="joinus-button">
+            <a href="#register" className="joinus-button">
               申し込む
               <ExternalLink size={18} />
-            </button>
+            </a>
           </div>
 
           <div className="joinus-card">
@@ -28,10 +28,15 @@ const JoinUs = () => {
             <MapPin className="joinus-icon" size={40} />
             <h3>会場アクセス</h3>
             <p>岡山大学 共育共創コモンズ2階</p>
-            <button className="joinus-button">
+            <a
+              href="https://maps.app.goo.gl/LYtQayQ6ZYmKMeoN6"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="joinus-button"
+            >
               地図を見る
               <ExternalLink size={18} />
-            </button>
+            </a>
           </div>
         </div>
 

@@ -27,6 +27,14 @@ const EventDetails = () => {
             <MapPin className="detail-icon" size={32} />
             <h3>開催場所</h3>
             <p>岡山大学<br />共育共創コモンズ2階</p>
+            <a
+              href="https://maps.app.goo.gl/LYtQayQ6ZYmKMeoN6"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="map-link"
+            >
+              📍 地図を見る
+            </a>
           </div>
 
           <div className="detail-card">
