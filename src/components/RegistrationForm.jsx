@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { User, Mail, Phone, Building, MessageSquare, Send } from 'lucide-react';
+import SuccessModal from './SuccessModal';
 import './RegistrationForm.css';
 
 const RegistrationForm = () => {
@@ -14,6 +15,8 @@ const RegistrationForm = () => {
 
   const [status, setStatus] = useState({ type: '', message: '' });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
+  const [submittedName, setSubmittedName] = useState('');
 
   const handleChange = (e) => {
     setFormData({
@@ -50,10 +53,11 @@ const RegistrationForm = () => {
       }
 
       if (response.ok) {
-        setStatus({
-          type: 'success',
-          message: '申し込みが完了しました！ご参加をお待ちしております。'
-        });
+        // 成功時はモーダルを表示
+        setSubmittedName(formData.name);
+        setShowSuccessModal(true);
+
+        // フォームをリセット
         setFormData({
           name: '',
           email: '',
@@ -62,6 +66,9 @@ const RegistrationForm = () => {
           category: '',
           message: ''
         });
+
+        // ステータスメッセージはクリア
+        setStatus({ type: '', message: '' });
       } else {
         const errorMessage = data.error ||
           (response.status === 409 ? 'このメールアドレスは既に登録されています。' :
@@ -95,18 +102,25 @@ const RegistrationForm = () => {
   };
 
   return (
-    <section className="registration-section" id="register">
-      <div className="registration-container">
-        <h2 className="section-title">参加申し込み</h2>
-        <p className="section-description">
-          下記フォームに必要事項をご記入の上、送信してください。
-        </p>
+    <>
+      <SuccessModal
+        isOpen={showSuccessModal}
+        onClose={() => setShowSuccessModal(false)}
+        name={submittedName}
+      />
 
-        {status.message && (
-          <div className={`status-message ${status.type}`}>
-            {status.message}
-          </div>
-        )}
+      <section className="registration-section" id="register">
+        <div className="registration-container">
+          <h2 className="section-title">参加申し込み</h2>
+          <p className="section-description">
+            下記フォームに必要事項をご記入の上、送信してください。
+          </p>
+
+          {status.message && (
+            <div className={`status-message ${status.type}`}>
+              {status.message}
+            </div>
+          )}
 
         <form onSubmit={handleSubmit} className="registration-form">
           <div className="form-group">
@@ -222,6 +236,7 @@ const RegistrationForm = () => {
         </form>
       </div>
     </section>
+    </>
   );
 };
 
