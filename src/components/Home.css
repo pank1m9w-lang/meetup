@@ -71,6 +71,8 @@
   gap: 0.5rem;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   animation: fadeInUp 1.4s ease-out;
+  text-decoration: none;
+  scroll-behavior: smooth;
 }
 
 .cta-button:hover {

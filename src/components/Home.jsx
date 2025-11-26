@@ -25,10 +25,10 @@ const Home = () => {
           </div>
         </div>
 
-        <button className="cta-button">
+        <a href="#register" className="cta-button">
           参加する（申込ページへ）
           <ArrowRight className="button-icon" size={20} />
-        </button>
+        </a>
       </div>
     </section>
   );
