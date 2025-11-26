@@ -9,13 +9,13 @@
   font-weight: 700;
   line-height: 1.6;
 
-  --primary-color: #4A90E2;
-  --secondary-color: #F39C12;
+  --primary-color: #4CAF50;
+  --secondary-color: #66BB6A;
   --text-dark: #2C3E50;
-  --text-light: #ECF0F1;
-  --background-light: #FFFFFF;
-  --background-gray: #F8F9FA;
-  --accent-color: #E74C3C;
+  --text-light: #FFFFFF;
+  --background-light: #F5F9F5;
+  --background-gray: #E8F5E9;
+  --accent-color: #81C784;
 }
 
 body {

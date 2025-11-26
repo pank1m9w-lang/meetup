@@ -5,7 +5,7 @@ const Home = () => {
   return (
     <section className="home-section">
       <div className="home-container">
-        <h1 className="event-title">おかやま Youth Meetup!</h1>
+        <h1 className="event-title">まだ名前のない"あなたの意志"へ。</h1>
         <div className="hero-image-container">
           <img src="/Please.svg" alt="Youth Meetup Illustration" className="hero-image" />
         </div>

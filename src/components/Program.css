@@ -1,7 +1,7 @@
 .program-section {
   min-height: 100vh;
   padding: 5rem 2rem;
-  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  background: linear-gradient(135deg, #A5D6A7 0%, #81C784 100%);
   color: white;
 }
 
@@ -39,7 +39,7 @@
 }
 
 .program-icon-wrapper {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #4CAF50 0%, #66BB6A 100%);
   width: 100px;
   height: 100px;
   border-radius: 50%;
