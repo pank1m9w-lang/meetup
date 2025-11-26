@@ -8,7 +8,9 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "db:init": "node scripts/init-db.js"
+    "db:init": "node scripts/init-db.js",
+    "db:test": "node scripts/test-insert.js",
+    "db:sample": "node scripts/add-sample-data.js"
   },
   "dependencies": {
     "@vercel/postgres": "^0.10.0",
