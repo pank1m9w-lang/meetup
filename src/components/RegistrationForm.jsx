@@ -28,6 +28,8 @@ const RegistrationForm = () => {
     setStatus({ type: '', message: '' });
 
     try {
+      console.log('Submitting form data:', formData);
+
       const response = await fetch('/api/register', {
         method: 'POST',
         headers: {
@@ -36,12 +38,21 @@ const RegistrationForm = () => {
         body: JSON.stringify(formData),
       });
 
-      const data = await response.json();
+      console.log('Response status:', response.status);
+
+      let data;
+      try {
+        data = await response.json();
+        console.log('Response data:', data);
+      } catch (parseError) {
+        console.error('Failed to parse response:', parseError);
+        throw new Error('サーバーからの応答が不正です');
+      }
 
       if (response.ok) {
         setStatus({
           type: 'success',
-          message: '申し込みが完了しました！ご登録のメールアドレスに確認メールをお送りします。'
+          message: '申し込みが完了しました！ご参加をお待ちしております。'
         });
         setFormData({
           name: '',
@@ -52,15 +63,31 @@ const RegistrationForm = () => {
           message: ''
         });
       } else {
+        const errorMessage = data.error ||
+          (response.status === 409 ? 'このメールアドレスは既に登録されています。' :
+           response.status === 500 ? 'サーバーエラーが発生しました。時間をおいて再度お試しください。' :
+           '申し込みに失敗しました。入力内容をご確認ください。');
+
         setStatus({
           type: 'error',
-          message: data.error || '申し込みに失敗しました。もう一度お試しください。'
+          message: errorMessage
         });
+        console.error('Server error:', data);
       }
     } catch (error) {
+      console.error('Submit error:', error);
+
+      let errorMessage = 'サーバーとの通信に失敗しました。';
+
+      if (error.message.includes('fetch')) {
+        errorMessage = 'ネットワークエラー: インターネット接続を確認してください。';
+      } else if (error.message) {
+        errorMessage = error.message;
+      }
+
       setStatus({
         type: 'error',
-        message: 'サーバーとの通信に失敗しました。もう一度お試しください。'
+        message: errorMessage + ' 問題が続く場合は、運営までお問い合わせください。'
       });
     } finally {
       setIsSubmitting(false);
