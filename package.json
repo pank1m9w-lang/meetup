@@ -10,7 +10,8 @@
     "preview": "vite preview",
     "db:init": "node scripts/init-db.js",
     "db:test": "node scripts/test-insert.js",
-    "db:sample": "node scripts/add-sample-data.js"
+    "db:sample": "node scripts/add-sample-data.js",
+    "db:update": "node scripts/update-schema.js"
   },
   "dependencies": {
     "@vercel/postgres": "^0.10.0",

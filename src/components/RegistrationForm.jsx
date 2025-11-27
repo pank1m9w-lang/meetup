@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { User, Mail, Phone, Building, MessageSquare, Send } from 'lucide-react';
+import { User, Mail, Phone, Building, MessageSquare, Send, UserPlus, X, Camera } from 'lucide-react';
 import SuccessModal from './SuccessModal';
 import './RegistrationForm.css';
 
@@ -10,19 +10,37 @@ const RegistrationForm = () => {
     phone: '',
     organization: '',
     category: '',
-    message: ''
+    message: '',
+    photoConsent: true
   });
 
+  const [additionalMembers, setAdditionalMembers] = useState([]);
   const [status, setStatus] = useState({ type: '', message: '' });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showSuccessModal, setShowSuccessModal] = useState(false);
   const [submittedName, setSubmittedName] = useState('');
 
   const handleChange = (e) => {
+    const { name, value, type, checked } = e.target;
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [name]: type === 'checkbox' ? checked : value
     });
+  };
+
+  const addMember = () => {
+    setAdditionalMembers([...additionalMembers, { name: '', email: '' }]);
+  };
+
+  const removeMember = (index) => {
+    setAdditionalMembers(additionalMembers.filter((_, i) => i !== index));
+  };
+
+  const updateMember = (index, field, value) => {
+    const updated = additionalMembers.map((member, i) =>
+      i === index ? { ...member, [field]: value } : member
+    );
+    setAdditionalMembers(updated);
   };
 
   const handleSubmit = async (e) => {
@@ -31,14 +49,19 @@ const RegistrationForm = () => {
     setStatus({ type: '', message: '' });
 
     try {
-      console.log('Submitting form data:', formData);
+      const submissionData = {
+        ...formData,
+        additionalMembers: additionalMembers
+      };
+
+      console.log('Submitting form data:', submissionData);
 
       const response = await fetch('/api/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(submissionData),
       });
 
       console.log('Response status:', response.status);
@@ -64,8 +87,10 @@ const RegistrationForm = () => {
           phone: '',
           organization: '',
           category: '',
-          message: ''
+          message: '',
+          photoConsent: true
         });
+        setAdditionalMembers([]);
 
         // ステータスメッセージはクリア
         setStatus({ type: '', message: '' });
@@ -217,6 +242,74 @@ const RegistrationForm = () => {
               rows="4"
               placeholder="ご質問やご要望などがあればご記入ください"
             ></textarea>
+          </div>
+
+          <div className="form-group photo-consent-group">
+            <label className="checkbox-label">
+              <input
+                type="checkbox"
+                name="photoConsent"
+                checked={formData.photoConsent}
+                onChange={handleChange}
+              />
+              <Camera size={20} />
+              <span>イベント中の写真撮影・SNS等への掲載に同意します</span>
+            </label>
+            <p className="form-note">
+              ※イベントの様子を撮影し、SNSやWebサイトに掲載させていただく場合があります。
+            </p>
+          </div>
+
+          <div className="additional-members-section">
+            <div className="section-header">
+              <h4>
+                <UserPlus size={20} />
+                参加メンバーの追加（任意）
+              </h4>
+              <button
+                type="button"
+                className="add-member-button"
+                onClick={addMember}
+              >
+                <UserPlus size={18} />
+                メンバーを追加
+              </button>
+            </div>
+            <p className="form-note">
+              ご友人やグループで参加される場合は、メンバー情報を追加してください。
+            </p>
+
+            {additionalMembers.map((member, index) => (
+              <div key={index} className="member-card">
+                <div className="member-header">
+                  <span className="member-number">メンバー {index + 1}</span>
+                  <button
+                    type="button"
+                    className="remove-member-button"
+                    onClick={() => removeMember(index)}
+                    aria-label="削除"
+                  >
+                    <X size={18} />
+                  </button>
+                </div>
+                <div className="member-fields">
+                  <input
+                    type="text"
+                    placeholder="お名前"
+                    value={member.name}
+                    onChange={(e) => updateMember(index, 'name', e.target.value)}
+                    className="member-input"
+                  />
+                  <input
+                    type="email"
+                    placeholder="メールアドレス"
+                    value={member.email}
+                    onChange={(e) => updateMember(index, 'email', e.target.value)}
+                    className="member-input"
+                  />
+                </div>
+              </div>
+            ))}
           </div>
 
           <button

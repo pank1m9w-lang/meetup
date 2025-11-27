@@ -27,9 +27,9 @@ export default async function handler(req, res) {
       });
     }
 
-    const { name, email, phone, organization, category, message } = req.body;
+    const { name, email, phone, organization, category, message, photoConsent, additionalMembers } = req.body;
 
-    console.log('Received registration request:', { name, email, category });
+    console.log('Received registration request:', { name, email, category, photoConsent, additionalMembersCount: additionalMembers?.length || 0 });
 
     // バリデーション
     if (!name || !email || !category) {
@@ -47,8 +47,8 @@ export default async function handler(req, res) {
     // データベースに保存
     console.log('Attempting to insert into database...');
     const result = await sql`
-      INSERT INTO registrations (name, email, phone, organization, category, message)
-      VALUES (${name}, ${email}, ${phone || null}, ${organization || null}, ${category}, ${message || null})
+      INSERT INTO registrations (name, email, phone, organization, category, message, photo_consent, additional_members)
+      VALUES (${name}, ${email}, ${phone || null}, ${organization || null}, ${category}, ${message || null}, ${photoConsent !== undefined ? photoConsent : true}, ${JSON.stringify(additionalMembers || [])})
       RETURNING id, created_at
     `;
 
