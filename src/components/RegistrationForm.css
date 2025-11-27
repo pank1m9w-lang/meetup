@@ -104,7 +104,7 @@
 }
 
 .photo-consent-group {
-  background-color: var(--background-gray);
+  background-color: white;
   padding: 1.5rem;
   border-radius: 12px;
   border: 2px solid #e0e0e0;
@@ -139,7 +139,7 @@
 }
 
 .additional-members-section {
-  background-color: var(--background-gray);
+  background-color: white;
   padding: 1.5rem;
   border-radius: 12px;
   border: 2px solid #e0e0e0;
@@ -221,7 +221,7 @@
 
 .member-fields {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: 0.75rem;
 }
 

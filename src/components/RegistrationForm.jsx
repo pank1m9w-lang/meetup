@@ -29,7 +29,7 @@ const RegistrationForm = () => {
   };
 
   const addMember = () => {
-    setAdditionalMembers([...additionalMembers, { name: '', email: '' }]);
+    setAdditionalMembers([...additionalMembers, { name: '' }]);
   };
 
   const removeMember = (index) => {
@@ -298,13 +298,6 @@ const RegistrationForm = () => {
                     placeholder="お名前"
                     value={member.name}
                     onChange={(e) => updateMember(index, 'name', e.target.value)}
-                    className="member-input"
-                  />
-                  <input
-                    type="email"
-                    placeholder="メールアドレス"
-                    value={member.email}
-                    onChange={(e) => updateMember(index, 'email', e.target.value)}
                     className="member-input"
                   />
                 </div>
