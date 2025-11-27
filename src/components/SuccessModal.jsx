@@ -24,7 +24,7 @@ const SuccessModal = ({ isOpen, onClose, name }) => {
         </p>
 
         <div className="modal-details">
-          <p>📧 ご登録いただいたメールアドレスに確認メールをお送りしました。</p>
+          <p>📧 フォームを2.3日で確認のメールを送ります。</p>
           <p>📅 イベント当日のご参加をお待ちしております！</p>
         </div>
 
