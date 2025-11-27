@@ -118,25 +118,57 @@
 }
 
 @media (max-width: 768px) {
+  .event-details-section {
+    padding: 3rem 1rem;
+  }
+
   .section-title {
     font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .details-grid {
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .detail-card {
+    padding: 1.5rem;
+  }
+
+  .detail-card h3 {
+    font-size: 1.3rem;
+  }
+
+  .detail-card p {
+    font-size: 1rem;
+  }
+
+  .map-link {
+    font-size: 0.95rem;
+    padding: 0.5rem 1rem;
+  }
+
+  .schedule-section {
+    padding: 1.5rem 1rem;
+  }
+
+  .schedule-title {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
   }
 
   .schedule-item {
-    grid-template-columns: 80px 1fr;
-    gap: 1rem;
+    grid-template-columns: 70px 1fr;
+    gap: 0.75rem;
     padding: 1rem;
   }
 
   .schedule-time {
-    font-size: 1rem;
+    font-size: 0.95rem;
   }
 
   .schedule-content {
-    font-size: 1rem;
-  }
-
-  .schedule-section {
-    padding: 2rem 1.5rem;
+    font-size: 0.95rem;
   }
 }

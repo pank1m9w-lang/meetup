@@ -66,23 +66,35 @@
 }
 
 @media (max-width: 768px) {
+  .program-section {
+    padding: 3rem 1rem;
+  }
+
   .section-title {
     font-size: 2rem;
+    margin-bottom: 2rem;
   }
 
   .program-grid {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
 
   .program-card {
-    padding: 2rem;
+    padding: 1.5rem;
+  }
+
+  .program-icon-wrapper {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 1rem;
   }
 
   .program-title {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
   }
 
   .program-description {
-    font-size: 1rem;
+    font-size: 0.95rem;
   }
 }
